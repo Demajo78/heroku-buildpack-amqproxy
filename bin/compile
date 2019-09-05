@@ -24,6 +24,7 @@ AMQPROXY_URL="https://github.com/cloudamqp/amqproxy/releases/download/v0.4.0/amq
 AMQPROXY_FILE="amqproxy-0.4.0-1.linux-x86_64-static"
 AMQPROXY_VERSION="0.4.0"
 INSTALL_DIR="$BUILD_DIR/vendor/"
+BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 
 
 mkdir -p $INSTALL_DIR
@@ -36,7 +37,7 @@ tar xvf "$AMQPROXY_FILE".tar.gz -C $BUILD_DIR/vendor/
 cp $BUILD_DIR/vendor/amqproxy/amqproxy $BUILD_DIR/vendor/bin/
 chmod +x $BUILD_DIR/vendor/bin/amqproxy
 
-cp $BUILD_DIR/vendor/amqproxy/amqproxy_run.sh $BUILD_DIR/.profile.d/
+cp $BP_DIR/amqproxy_run.sh $BUILD_DIR/.profile.d/
 chmod +x $BUILD_DIR/.profile.d/amqproxy_run.sh
 
 echo "Done" | indent
