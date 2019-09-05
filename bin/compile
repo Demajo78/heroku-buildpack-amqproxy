@@ -35,6 +35,6 @@ curl -OL $AMQPROXY_URL
 tar xvf "$AMQPROXY_FILE".tar.gz -C $BUILD_DIR/vendor/
 chmod +x $BUILD_DIR/vendor/amqproxy
 
-set-env PATH '/app/vendor/amqproxy/:$PATH'
+export PATH=/app/vendor/amqproxy/:$PATH
 
 echo "Done" | indent
