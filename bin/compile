@@ -33,8 +33,8 @@ mkdir -p $CACHE_DIR
 echo "Fetching and unpacking amqproxy" | indent
 curl -OL $AMQPROXY_URL
 tar xvf "$AMQPROXY_FILE".tar.gz -C $BUILD_DIR/vendor/
-chmod +x $BUILD_DIR/vendor/amqproxy
+cp $BUILD_DIR/vendor/amqproxy/amqproxy /app/vendor/bin/
+chmod +x /app/vendor/amqproxy
 
-export PATH=/app/vendor/amqproxy/:$PATH
 
 echo "Done" | indent
