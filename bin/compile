@@ -15,7 +15,7 @@ mktmpdir() {
 
 # Usage: $ set-env key value
 set-env() {
-  echo "export $1=$2" >> $PROFILE_PATH
+  echo "export $1=$2"
 }
 
 BUILD_DIR=$1
