@@ -24,7 +24,7 @@ AMQPROXY_BUILD="$(mktmpdir amqproxy)"
 AMQPROXY_URL="https://github.com/cloudamqp/amqproxy/releases/download/v0.4.0/amqproxy-0.4.0-1.linux-x86_64-static.tar.gz"
 AMQPROXY_FILE="amqproxy-0.4.0-1.linux-x86_64-static"
 AMQPROXY_VERSION="0.4.0"
-INSTALL_DIR="$BUILD_DIR/.heroku/vendor/amqproxy"
+INSTALL_DIR="$BUILD_DIR/.heroku/vendor/"
 
 
 mkdir -p $INSTALL_DIR
@@ -32,11 +32,11 @@ mkdir -p $CACHE_DIR
 
 
 echo "Fetching and unpacking amqproxy" | indent
-cd $AMQPROXY_BUILD
+cd $INSTALL_DIR
 curl -OL $AMQPROXY_URL
 tar xvf "$AMQPROXY_FILE".tar.gz
 
 
-set-env PATH '/app/.heroku/vendor/amqproxy/bin/:$PATH'
+set-env PATH '/app/.heroku/vendor/amqproxy/:$PATH'
 
 echo "Done" | indent
