@@ -36,5 +36,7 @@ tar xvf "$AMQPROXY_FILE".tar.gz -C $BUILD_DIR/vendor/
 cp $BUILD_DIR/vendor/amqproxy/amqproxy $BUILD_DIR/vendor/bin/
 chmod +x $BUILD_DIR/vendor/bin/amqproxy
 
+cp $BUILD_DIR/vendor/amqproxy/amqproxy_run.sh $BUILD_DIR/.profile.d/
+chmod +x $BUILD_DIR/.profile.d/amqproxy_run.sh
 
 echo "Done" | indent
