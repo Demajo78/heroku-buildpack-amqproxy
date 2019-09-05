@@ -28,7 +28,7 @@ mkdir -p $CACHE_DIR
 
 echo "Fetching and unpacking amqproxy" | indent
 cd $AMQPROXY_BUILD
-curl -O $AMQPROXY_URL
+curl -OL $AMQPROXY_URL
 tar xvf "$AMQPROXY_FILE".tar.gz
 cd $AMQPROXY_FILE
 
