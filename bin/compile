@@ -6,6 +6,13 @@ indent() {
   sed -u 's/^/       /'
 }
 
+mktmpdir() {
+  dir=$(mktemp -t fakesu-$1-XXXX)
+  rm -rf $dir
+  mkdir -p $dir
+  echo $dir
+}
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 AMQPROXY_BUILD="$(mktmpdir amqproxy)"
