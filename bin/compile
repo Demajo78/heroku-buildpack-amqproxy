@@ -13,6 +13,11 @@ mktmpdir() {
   echo $dir
 }
 
+# Usage: $ set-env key value
+set-env() {
+  echo "export $1=$2" >> $PROFILE_PATH
+}
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 AMQPROXY_BUILD="$(mktmpdir amqproxy)"
