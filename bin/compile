@@ -30,7 +30,7 @@ echo "Fetching and unpacking amqproxy" | indent
 cd $AMQPROXY_BUILD
 curl -OL $AMQPROXY_URL
 tar xvf "$AMQPROXY_FILE".tar.gz
-cd $AMQPROXY_FILE
+
 
 set-env PATH '/app/.heroku/vendor/amqproxy/bin/:$PATH'
 
