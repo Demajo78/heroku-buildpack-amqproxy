@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+AMQPROXY_BUILD="$(mktmpdir amqproxy)"
+AMQPROXY_URL="https://github.com/cloudamqp/amqproxy/releases/download/v0.4.0/amqproxy-0.4.0-1.linux-x86_64-static.tar.gz"
+AMQPROXY_FILE="amqproxy-0.4.0-1.linux-x86_64-static"
+AMQPROXY_VERSION="0.4.0"
+INSTALL_DIR="$BUILD_DIR/.heroku/vendor/amqproxy"
+
+
+mkdir -p $INSTALL_DIR
+mkdir -p $CACHE_DIR
+
+
+echo "Fetching and unpacking amqproxy" | indent
+cd $AMQPROXY_BUILD
+curl -O $AMQPROXY_URL
+tar xvf "$AMQPROXY_FILE".tar.gz
+cd $AMQPROXY_FILE
+
+set-env PATH '/app/.heroku/vendor/amqproxy/bin/:$PATH'
+
+echo "Done" | indent
